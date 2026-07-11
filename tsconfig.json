@@ -1,0 +1,3 @@
+{
+  "extends": "@cookbook/config/tsconfig.base.json"
+}

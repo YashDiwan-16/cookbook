@@ -1,0 +1,25 @@
+{
+  "name": "@cookbook/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@cookbook/db": "workspace:*",
+    "@cookbook/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "mongodb": "^7.4.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cookbook/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

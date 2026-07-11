@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{workspaceRoot}/apps/web/dist/**",
+      "!{workspaceRoot}/apps/web/.tanstack/**",
+      "!{workspaceRoot}/apps/web/src/routeTree.gen.ts",
+      "!{workspaceRoot}/apps/server/dist/**",
+      "!{workspaceRoot}/packages/db/dist/**",
+      "!{workspaceRoot}/.vercel/**",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"],
+      "inputs": ["default", "^default"]
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

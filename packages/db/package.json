@@ -1,0 +1,23 @@
+{
+  "name": "@cookbook/db",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@cookbook/env": "workspace:*",
+    "dotenv": "catalog:",
+    "mongoose": "^9.7.3",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cookbook/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
