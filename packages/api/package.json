@@ -11,11 +11,13 @@
   },
   "scripts": {},
   "dependencies": {
+    "@ai-sdk/google": "^3.0.91",
     "@cookbook/auth": "workspace:*",
     "@cookbook/db": "workspace:*",
     "@cookbook/env": "workspace:*",
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
+    "ai": "^6.0.224",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },

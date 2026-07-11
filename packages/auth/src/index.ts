@@ -1,12 +1,12 @@
 import { client } from "@cookbook/db";
-import { env } from "@cookbook/env/server";
+import { env, trustedOrigins } from "@cookbook/env/server";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 export function createAuth() {
   return betterAuth({
     database: mongodbAdapter(client),
-    trustedOrigins: [env.CORS_ORIGIN],
+    trustedOrigins,
     emailAndPassword: {
       enabled: true,
     },

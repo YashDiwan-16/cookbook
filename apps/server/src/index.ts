@@ -1,7 +1,9 @@
+import "./bun-compat";
+
 import { createContext } from "@cookbook/api/context";
 import { appRouter } from "@cookbook/api/routers/index";
 import { auth } from "@cookbook/auth";
-import { env } from "@cookbook/env/server";
+import { isTrustedOrigin } from "@cookbook/env/server";
 import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
@@ -13,7 +15,7 @@ app.use(logger());
 app.use(
   "/*",
   cors({
-    origin: env.CORS_ORIGIN,
+    origin: (origin) => (isTrustedOrigin(origin) ? origin : null),
     allowMethods: ["GET", "POST", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
